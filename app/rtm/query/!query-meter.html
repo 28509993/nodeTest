@@ -1,0 +1,220 @@
+﻿
+<script>
+    ;!function(){
+        var vmName='vm-queryMeter';
+        ;avalon.vmodels[vmName]||function(vm){
+            vm.init=function(){
+                vm.MERTERID='001140100739';
+            }
+            vm.querySubmit=function(){
+                var MERTERID   = vm.MERTERID.replace(/(^\s*)|(\s*$)/,"");
+                if (MERTERID=='') {
+                    avalon.msg.warning('表具ID必需输入!')
+                    return false;
+                }
+                ;!function(loadi){
+                    var data={MERTERID:MERTERID}
+                    avalon.post({url:"/rtm/query/querymeter?",data:data},'0').then(function(resut){
+                        vm.METERINFO=resut.METERINFO||{};
+                        layer.close(loadi);
+                    },function(e){
+                        avalon.aWarning(e.TDesc);
+                        layer.close(loadi);
+                    })
+                }(layer.load(0))
+            }
+            vm.activeTabIndex=function(index){
+                vm.activeIndex=index;
+            }
+        }(avalon.define({
+            $id:vmName,
+            init:undefined,
+            METERINFO:{},
+            MERTERID:"",
+            querySubmit:undefined,
+            activeTabIndex:undefined,
+            activeIndex:1,
+            tabPages1:['基本信息','参数信息','其他信息']
+        }));
+        avalon.vmodels[vmName].init();
+
+    }();
+
+</script>
+<script type="avalon" id="tplMeterinfoTab1">
+<form class="form-horizontal" action="">
+    <fieldset>
+        <div class="form-group ">
+            <label  class="col-lg-2 control-label" >表具编号</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.METERID}}">
+            </div>
+            <label class="col-lg-2 control-label">终端编号</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.DEVID}}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-lg-2 control-label" >基表编号</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.BASEMETERID}}">
+            </div>
+            <label class="col-lg-2 control-label">表具类型</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.METERTYPE}}" >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-lg-2 control-label" >网络类型</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.NETTYPE}}" >
+            </div>
+            <label class="col-lg-2 control-label">电池种类</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.BATTERYTYPE}}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-lg-2 control-label" >表具状态</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.METERSTATUS}}" >
+            </div>
+            <label class="col-lg-2 control-label">操作员</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.METERID}}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-lg-2 control-label" >阀门状态</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.METERID}}">
+            </div>
+            <label class="col-lg-2 control-label">天线是否安装</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.METERID}}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-lg-2 control-label" >上告类型</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.METERID}}">
+            </div>
+            <label class="col-lg-2 control-label">上告周期</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled="" ms-attr-value="{{METERINFO.METERID}}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-lg-2 control-label" >上告时间</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled=""  ms-attr-value="{{METERINFO.METERID}}">
+            </div>
+            <label class="col-lg-2 control-label">开通上告时间</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled=""  ms-attr-value="{{METERINFO.METERID}}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-lg-2 control-label" >入库时间</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled=""  ms-attr-value="{{METERINFO.METERID}}">
+            </div>
+            <label class="col-lg-2 control-label">地址编号</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" disabled=""  ms-attr-value="{{METERINFO.ADRCODE}}">
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+</script>
+
+
+<section id="vm-queryMeter" class="mainbar" ms-controller="vm-queryMeter">
+
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="widget wblue">
+                    <div class="widget-head"></div>
+                    <div class="widget-content">
+
+                        <div class="container ">
+                            <!-- Header -->
+                            <div >
+                                <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="active"><a href="#qmetertab1"
+                                                          data-toggle="tab">基本信息</a></li>
+                                    <li><a href="#qmetertab2" data-toggle="tab">参数信息</a></li>
+                                    <li><a href="#qmetertab3" data-toggle="tab">其他信息</a></li>
+                                    <div class="col-lg-4">
+                                        <div class="navbar-form navbar-right" role="form" action="">
+                                            <div class="form-group">
+                                                <input ms-duplex="MERTERID" placeholder="输入编号"/>
+                                            </div>
+                                            <button  type="button" class="btn btn-primary"  ms-click="querySubmit">查询</button>
+                                        </div>
+                                    </div>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane  active" id="qmetertab1" >
+                                        <div class="row header" style="margin-top: 20px" ms-include="'tplMeterinfoTab1'">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="qmetertab2">
+                                        <div class="row header" style="margin-top: 20px">
+                                            <div class="col-md-9">
+                                                <div class="input-group">
+                                                  <span class="input-group-addon">
+                                                    <input type="checkbox">
+                                                   </span>
+                                                    <input type="text" class="form-control" value="一个例子">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button type="button" class="btn btn-primary">
+                                                    test</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="qmetertab3">
+                                        <div class="row header" style="margin-top: 20px">
+                                            <div class="col-md-9">
+                                                <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox">
+                       </span>
+                                                    <input type="text" class="form-control" value="两个例子">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button type="button" class="btn btn-primary">
+                                                    test</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="widget-foot">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+

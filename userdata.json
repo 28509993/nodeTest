@@ -1,0 +1,38 @@
+{
+    "TResult": "Success",
+    "company": "taobao",
+    "TDesc": "set error!",
+    "jumpurl": "/index.html#!/",
+    "homepage": "/modules/home.html",
+    "userMenus":[
+        {
+            "name": "主页",
+            "style": "fa-dashboard",
+            "children":[{"name":"登录一","href":"/index.html?p=-1#!/11"},
+                {"name":"示例一","href":"#!/101"},
+                {"name":"示例二","href":"#!/102"}]
+
+        },
+        {
+            "name": "布局",
+            "href":"#!/101",
+            "style": "fa-lock",
+            "hint":{"text":"2.0","style":"label label-danger pull-right"}
+        },
+        {
+            "name": "菜单",
+            "style": "fa-lock",
+            "href":"#!/102",
+            "children":[{"name":"二级菜单","children":[{"name":"三级菜单","href":"/index.html?p=-1#!/11"},
+                {"name":"三级菜单","href":"/index.html?p=-1#!/11"}]},{"name":"二级菜单","href":"#"}],
+            "hint":{"text":"16","style":"label label-warning pull-right"}
+        }
+    ],
+    "routePages":{
+        "101":{"index":1,"href":"/modules/home.html","title":"首页"},
+        "102":{"index":2,"href":"/modules/demo/unit/test2.html","title":"示例二"},
+        "201":{"index":201,"href":"/modules/rtm/query/query-meter.html","title":"远程抄表"}
+    }
+}
+
+

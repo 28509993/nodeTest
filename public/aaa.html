@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/avalon.js"></script>
+    <script>
+        ;!function(vm){
+            function success(data){
+                vm.result=JSON.stringify( data);
+            }
+            function fail(err){
+                console.log(err)
+                vm.result=err;
+            }
+            vm.demoClick=function(){
+                var data={CUST_TEL:'13588348096'};
+                var url='/car/custdemo';
+                $.post(url, data, 'json').done(success).fail(fail);
+            };
+            vm.custInfoClick=function(){
+                var data={CUST_TEL:'13588348096'};
+                var url='/car/custInfo';
+                $.post(url, data, 'json') .done(success).fail(fail);
+            };
+
+            vm.custnewClick=function(){
+                console.log('zzzzzzzzzz')
+                var data={CUST_TEL:'13588348096'};
+                var url='/car/custnew';
+                $.post(url, data, 'json').done(success).fail(fail);
+            };
+            vm.custpwdrestClick=function(){
+                var data={CUST_TEL:'13588348096'};
+                var url='/car/custpwdrest';
+                $.post(url, data, 'json').done(function(data){
+                    $('#inputdata').val(data.PWD)
+                    success(data);
+                }).fail(fail);
+            };
+            vm.custloginClick=function(){
+                var data={CUST_TEL:'13588348096',CUST_PWD:$('#inputdata').val()};
+                var url='/car/custlogin';
+                $.post(url, data, 'json').done(success).fail(fail);
+            };
+
+            vm.illegalqueryBymarkClick=function(){
+                var data={CAR_MARK:$('#inputCarmark').val(),CAR_IDENT:$('#inputCarIdent').val()};
+                var url='/car/illegalqueryByMark';
+                $.post(url, data, 'json').done(success).fail(fail);
+            };
+            vm.getIllegalQueryTaskClick=function(){
+                var data={};
+                var url='/car/getIllegalQueryTask';
+                $.post(url, data, 'json').done(success).fail(fail);
+            };
+
+        }(avalon.define({
+            $id:'vm-test',
+            result:'hello!',
+            demoClick:undefined,
+            custInfoClick:undefined,
+            custnewClick:undefined,
+            custpwdrestClick:undefined,
+            custloginClick:undefined,
+            illegalqueryBymarkClick:undefined,
+            getIllegalQueryTaskClick:undefined
+        }));
+
+
+
+    </script>
+
+
+</head>
+<body id="vm-test" ms-controller="vm-test">
+<p><h1>你好，世界！</h1> <input type="input" id="inputdata" value="" placeholder="Enter data"></p>
+
+
+<div  >
+<p>
+    <button type="button" ms-click="demoClick" class="btn btn-lg btn-default">demo</button>
+
+
+    <button type="button" ms-click="custInfoClick" class="btn btn-lg btn-primary">客户信息</button>
+
+    <button type="button" ms-click="custnewClick" class="btn btn-lg btn-primary">注册</button>
+    <button type="button" ms-click="custpwdrestClick" class="btn btn-lg btn-primary">密码重置</button>
+    <button type="button" ms-click="custloginClick" class="btn btn-lg btn-primary">登录</button>
+
+    <button type="button"  class="btn btn-lg btn-success">success</button>
+
+
+    <button type="button" class="btn btn-lg btn-info">Info</button>
+    <button type="button" class="btn btn-lg btn-warning">Warning</button>
+    <button type="button" class="btn btn-lg btn-danger">Danger</button>
+    <button type="button" class="btn btn-lg btn-link">Link</button>
+</p>
+
+    <p>
+        <button type="button" ms-click="illegalqueryBymarkClick" class="btn btn-lg btn-primary">违章查询(根据车牌)</button>
+        <input type="input" id="inputCarmark" value="浙A133UV" placeholder="车牌号">
+        <input type="input" id="inputCarIdent" value="A66765" placeholder="识别号">
+        <button type="button" ms-click="getIllegalQueryTaskClick" class="btn btn-lg btn-primary">获取任务</button>
+    </p>
+    </div>
+<div class="alert alert-success" role="alert">
+    <strong>Well done!</strong> {{result}}
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

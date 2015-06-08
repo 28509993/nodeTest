@@ -1,0 +1,19 @@
+{
+  "name": "hzgas-bus",
+  "version": "0.0.0",
+  "authors": [
+    "28509993 <28509993@qq.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "store": "~2.2.0"
+  }
+}

@@ -1,0 +1,83 @@
+<script>
+    ;!function(){
+        var vmName='vm-loginPage';
+        ;avalon.vmodels[vmName]||function(vm){
+            vm.init=function(){
+                //from cookie
+                vm.USER_NO = 'hz001';
+                vm.USER_PWD = '123456';
+
+            }
+            vm.loginSubmit=function(){
+                var USER_NO   = vm.USER_NO.replace(/(^\s*)|(\s*$)/,"");
+                var USER_PWD = vm.USER_PWD.replace(/(^\s*)|(\s*$)/,"");
+                if (USER_NO=='' || USER_PWD=='' || USER_NO=='用户名') {
+                    avalon.msg.warning('输入的用户名称或密码不正确!')
+                    return false;
+                }
+                ;!function(loadi){
+                    var data={USER_NO:USER_NO,USER_PWD:USER_PWD}
+                    avalon.post({url:"/system/login",data:data}).then(function(resut){
+                        var str = '<!doctype html><html><head>';
+                        str+=' <link href="css/bootstrap.min.css" rel="stylesheet">';
+                        str+=' <link href="css/font-awesome.css" rel="stylesheet">';
+                        str += '</head><body><div class="wrapper"><div class="logo-bar"><a href="http://localhost:3101" class="logo">已经登录啦</a></div></div><div class="wrapper"><div class="loadingbox"><img src="/img/loading.gif" />&nbsp;&nbsp;登录成功，正在跳转，请稍后……</div></div><div class="wrapper"><div class="bottom"><div class="access-mode"><a href="http://" class="phone">手机访问</a>|<ahref="http://localhost:3101" class="android">Android客户端下载</a>|<ahref="http://www.baidu.com" class="iPhone">iPhone客户端下载</a></div><p>Copyright &copy; 2014 - 2015 WM. All rights reserved. 我是王敏 版权所有.浙ICP证xxxxx号</p></div></div>';
+                        str += '<script type="text/javascript"> function jump(){window.location.href="' + resut.jumpurl + '"}; setTimeout("jump()","2000");  <\/script>'
+                        str += ' </body></html>';
+                        document.write(str);
+                    },function(e){
+                        avalon.aWarning(e.TDesc);
+                        layer.close(loadi);
+                    })
+                }(layer.load(0))
+            }
+        }(avalon.define({
+            $id:vmName,
+            init:undefined,
+            USER_NO:'',
+            USER_PWD:'',
+            loginSubmit:undefined
+        }));
+        avalon.vmodels[vmName].init();
+    }();
+
+
+
+
+
+</script>
+
+
+
+
+<div ms-controller="vm-loginPage">
+    <form class="form-horizontal">
+        <div class="title control-group">
+            <label class="control-label" for="inputEmail">Login</label>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+                <input type="text" id="inputEmail"  focus  placeholder="Email" ms-duplex="USER_NO">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputPassword">Password</label>
+            <div class="controls">
+                <input type="password" id="inputPassword" placeholder="Password" ms-duplex="USER_PWD">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox"> Remember me
+                </label>
+                <button type="button" class="btn btn-lg btn-primary btn-info" ms-click="loginSubmit">确定</button>
+                <p class="text-muted text-center"> <a ms-href="'#!/12'"><small>忘记密码了？</small></a>
+
+                </p>
+            </div>
+        </div>
+    </form>
+</div>
+

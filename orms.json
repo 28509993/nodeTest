@@ -1,0 +1,425 @@
+{
+    "CM_CAR": {
+        "name": "CM_CAR",
+        "columns": {
+            "CAR_ID": {
+                "type": "VARCHAR"
+            },
+            "CAR_MARK": {
+                "type": "VARCHAR"
+            },
+            "MARK_BUREAU": {
+                "type": "VARCHAR"
+            },
+            "CAR_IDENT": {
+                "type": "VARCHAR"
+            },
+            "CAR_KIND": {
+                "type": "VARCHAR"
+            },
+            "CARFRAME_NO": {
+                "type": "VARCHAR"
+            },
+            "ENGINE_NO": {
+                "type": "VARCHAR"
+            },
+            "CAR_DESC": {
+                "type": "VARCHAR"
+            },
+            "CAR_BRAND": {
+                "type": "VARCHAR"
+            },
+            "USER_TYPE": {
+                "type": "VARCHAR"
+            },
+            "REGIST_DATE": {
+                "type": "DATE"
+            },
+            "RELEASE_DATE": {
+                "type": "DATE"
+            },
+            "EXAMINE_VALID_DATE": {
+                "type": "DATE"
+            },
+            "CAR_OWNER": {
+                "type": "VARCHAR"
+            },
+            "CAR_ADDRESS": {
+                "type": "VARCHAR"
+            },
+            "CREATE_DATE": {
+                "type": "DATETIME"
+            },
+            "LAST_APPROVE_TIME": {
+                "type": "DATETIME"
+            },
+            "LAST_APPROVE_FLAG": {
+                "type": "VARCHAR"
+            },
+            "FREE_QUERY_CNT": {
+                "type": "INT"
+            },
+            "CAR_STATUS": {
+                "type": "VARCHAR"
+            }
+        }
+    },
+    "CM_CUST_CAR": {
+        "name": "CM_CUST_CAR",
+        "columns": {
+            "CUST_ID": {
+                "type": "VARCHAR"
+            },
+            "CAR_ID": {
+                "type": "VARCHAR"
+            },
+            "CREATE_DATE": {
+                "type": "DATETIME"
+            },
+            "FREE_QUERY_CNT": {
+                "type": "INT"
+            }
+        }
+    },
+    "CM_CUSTOMER": {
+        "name": "CM_CUSTOMER",
+        "columns": {
+            "CUST_ID": {
+                "type": "VARCHAR"
+            },
+            "CUST_NICK": {
+                "type": "VARCHAR"
+            },
+            "CUST_NAME": {
+                "type": "VARCHAR"
+            },
+            "CUST_TYPE": {
+                "type": "VARCHAR"
+            },
+            "CUST_CLASS": {
+                "type": "VARCHAR"
+            },
+            "CUST_TEL": {
+                "type": "VARCHAR"
+            },
+            "CUST_WCHAT": {
+                "type": "VARCHAR"
+            },
+            "CUST_PWD": {
+                "type": "VARCHAR"
+            },
+            "CUST_EMAIL": {
+                "type": "VARCHAR"
+            },
+            "CUST_STATUS": {
+                "type": "VARCHAR"
+            },
+            "VERIFY_CODE": {
+                "type": "VARCHAR"
+            },
+            "CUST_FLAG": {
+                "type": "VARCHAR"
+            },
+            "DRIVER_IDENT": {
+                "type": "VARCHAR"
+            },
+            "DRIVER_CLASS": {
+                "type": "VARCHAR"
+            },
+            "DRIVER_DATE1": {
+                "type": "DATE"
+            },
+            "DRIVER_DATE2": {
+                "type": "DATE"
+            },
+            "DRIVER_CORE": {
+                "type": "INT"
+            },
+            "CREATE_DATE": {
+                "type": "DATETIME"
+            },
+            "CUST_LAST_DONE": {
+                "type": "VARCHAR"
+            },
+            "CUST_SEX": {
+                "type": "VARCHAR"
+            },
+            "CUST_ADDRESS": {
+                "type": "VARCHAR"
+            },
+            "CUST_BIRTH": {
+                "type": "DATE"
+            },
+            "EXAMINE_VALID_DATE": {
+                "type": "DATE"
+            },
+            "DEFAULT_BUREAU": {
+                "type": "VARCHAR"
+            },
+            "GRANT_FLAG": {
+                "type": "VARCHAR"
+            }
+        }
+    },
+    "CM_QUERY_LOG": {
+        "name": "CM_QUERY_LOG",
+        "columns": {
+            "LOG_ID": {
+                "type": "VARCHAR"
+            },
+            "CUST_ID": {
+                "type": "VARCHAR"
+            },
+            "CAR_ID": {
+                "type": "VARCHAR"
+            },
+            "BUSI_TYPE": {
+                "type": "VARCHAR"
+            },
+            "ACCESS_TYPE": {
+                "type": "VARCHAR"
+            },
+            "CUST_TEL": {
+                "type": "VARCHAR"
+            },
+            "CUST_WCHAT": {
+                "type": "VARCHAR"
+            },
+            "DRIVER_IDENT": {
+                "type": "VARCHAR"
+            },
+            "CAR_MARK": {
+                "type": "VARCHAR"
+            },
+            "CAR_KIND": {
+                "type": "VARCHAR"
+            },
+            "CAR_IDENT": {
+                "type": "VARCHAR"
+            },
+            "CARFRAME_NO": {
+                "type": "VARCHAR"
+            },
+            "ENGINE_NO": {
+                "type": "VARCHAR"
+            },
+            "SESSION_IP": {
+                "type": "VARCHAR"
+            },
+            "SESSION_ID": {
+                "type": "VARCHAR"
+            },
+            "CREATE_DATE": {
+                "type": "DATETIME"
+            }
+        }
+    },
+    "CM_TICKET": {
+        "name": "CM_TICKET",
+        "columns": {
+            "TICKET_ID": {
+                "type": "VARCHAR"
+            },
+            "TICKET_TYPE": {
+                "type": "VARCHAR"
+            },
+            "CUST_ID": {
+                "type": "VARCHAR"
+            },
+            "CAR_ID": {
+                "type": "VARCHAR"
+            },
+            "CAR_MARK": {
+                "type": "VARCHAR"
+            },
+            "CAR_KIND": {
+                "type": "VARCHAR"
+            },
+            "ILLEGAL_ADDRESS": {
+                "type": "VARCHAR"
+            },
+            "ILLEGAL_TIME": {
+                "type": "DATETIME"
+            },
+            "ILLEGAL_EVENT": {
+                "type": "VARCHAR"
+            },
+            "PAID_FLAG": {
+                "type": "VARCHAR"
+            },
+            "DEAL_FLAG": {
+                "type": "VARCHAR"
+            },
+            "GATHER_DEPART": {
+                "type": "VARCHAR"
+            },
+            "LAST_APPROVE_TIME": {
+                "type": "DATETIME"
+            },
+            "ECAR_DEAL_FLAG": {
+                "type": "VARCHAR"
+            },
+            "IS_FIRST": {
+                "type": "VARCHAR"
+            },
+            "FINISH_FLAG": {
+                "type": "VARCHAR"
+            }
+        }
+    },
+    "SYS_BASE": {
+        "name": "SYS_BASE",
+        "columns": {
+            "CODE_TYPE": {
+                "type": "VARCHAR"
+            },
+            "CODE_ID": {
+                "type": "VARCHAR"
+            },
+            "CODE_NAME": {
+                "type": "VARCHAR"
+            },
+            "CODE_VALUE": {
+                "type": "VARCHAR"
+            },
+            "CODE_DESC": {
+                "type": "VARCHAR"
+            },
+            "CODE_JSON": {
+                "type": "VARCHAR"
+            },
+            "DONE_DATE": {
+                "type": "DATETIME"
+            },
+            "CODE_SEQ": {
+                "type": "INT"
+            }
+        }
+    },
+    "SYS_MARK_BUREAU": {
+        "name": "SYS_MARK_BUREAU",
+        "columns": {
+            "MARK_BUREAU": {
+                "type": "VARCHAR"
+            },
+            "PROVINCE": {
+                "type": "VARCHAR"
+            },
+            "CITY": {
+                "type": "VARCHAR"
+            },
+            "COUNTY": {
+                "type": "VARCHAR"
+            }
+        }
+    },
+    "TASK_PUSH": {
+        "name": "TASK_PUSH",
+        "columns": {
+            "PUSH_ID": {
+                "type": "VARCHAR"
+            },
+            "CUST_ID": {
+                "type": "VARCHAR"
+            },
+            "PUSH_TYPE": {
+                "type": "VARCHAR"
+            },
+            "PUSH_PRIORITY": {
+                "type": "INT"
+            },
+            "CUST_TEL": {
+                "type": "VARCHAR"
+            },
+            "CUST_WCHAT": {
+                "type": "VARCHAR"
+            },
+            "DRIVER_IDENT": {
+                "type": "VARCHAR"
+            },
+            "CAR_MARK": {
+                "type": "VARCHAR"
+            },
+            "PUSH_CONTENT": {
+                "type": "VARCHAR"
+            },
+            "PUSH_FLAG": {
+                "type": "VARCHAR"
+            },
+            "CREATE_DATE": {
+                "type": "DATETIME"
+            },
+            "FINISH_DATE": {
+                "type": "DATETIME"
+            },
+            "FINISH_FLAG": {
+                "type": "VARCHAR"
+            }
+        }
+    },
+    "TASK_RECORD": {
+        "name": "TASK_RECORD",
+        "columns": {
+            "TASK_ID": {
+                "type": "VARCHAR"
+            },
+            "CUST_ID": {
+                "type": "VARCHAR"
+            },
+            "CAR_ID": {
+                "type": "VARCHAR"
+            },
+            "BUSI_TYPE": {
+                "type": "VARCHAR"
+            },
+            "BUSI_PRIORITY": {
+                "type": "INT"
+            },
+            "PROVINCE": {
+                "type": "VARCHAR"
+            },
+            "CITY": {
+                "type": "VARCHAR"
+            },
+            "COUNTY": {
+                "type": "VARCHAR"
+            },
+            "CUST_TEL": {
+                "type": "VARCHAR"
+            },
+            "CUST_WCHAT": {
+                "type": "VARCHAR"
+            },
+            "DRIVER_IDENT": {
+                "type": "VARCHAR"
+            },
+            "CAR_MARK": {
+                "type": "VARCHAR"
+            },
+            "CAR_IDENT": {
+                "type": "VARCHAR"
+            },
+            "CAR_KIND": {
+                "type": "VARCHAR"
+            },
+            "ENGINE_NO": {
+                "type": "VARCHAR"
+            },
+            "CARFRAME_NO": {
+                "type": "VARCHAR"
+            },
+            "TASK_REDO": {
+                "type": "INT"
+            },
+            "CREATE_DATE": {
+                "type": "DATETIME"
+            },
+            "FINISH_DATE": {
+                "type": "DATETIME"
+            },
+            "FINISH_FLAG": {
+                "type": "VARCHAR"
+            }
+        }
+    }
+}

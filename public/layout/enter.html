@@ -1,0 +1,85 @@
+<!--template(template/tpl_base.html)-->
+
+<script  type="avalon" id="tplLoginnavtop">
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-header">
+        <a href="/" class="navbar-brand"><span class="brand-title">我的title</span></a>
+        <a class="btn navbar-btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+        </a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="javascript:void(0)">Active</a></li>
+            <li><a href="javascript:void(0)">Link</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">例子 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0)">Action</a></li>
+                    <li><a href="javascript:void(0)">Another action</a></li>
+                    <li><a href="javascript:void(0)">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Dropdown header</li>
+                    <li><a href="javascript:void(0)">Separated link</a></li>
+                    <li><a href="javascript:void(0)">One more separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="pull-right navbar-logo">
+            <ul class="nav navbar-nav pull-right">
+
+                <li class="dropdown dropdown-big">
+                    <a href="#!/11" >
+                        用户登出
+                    </a>
+                </li>
+                <li class="dropdown dropdown-big">
+                    <a href="#!/12" >
+                        修改密码
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">菜单测试 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#!11">修改密码</a></li>
+                        <li><a href="#!12">用户登录</a></li>
+                        <li><a href="javascript:void(0)">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:void(0)">Separated link</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+        </script>
+
+<script>
+    ;!function(){
+        avalon.log("主体布局模块加载完毕");
+    }()
+</script>
+
+<div id="frame-wrapper">
+    <header class="clearfix">
+        <div ms-include="'tplLoginnavtop'"></div>
+    </header>
+
+    <section id="content" class="content">
+        <!--<div  ms-visible ="false" class="page-splash dissolve-animation">-->
+            <!--<div id="spinTarget"></div>-->
+            <!--<div class="page-splash-message page-splash-message-subtle">正在加载</div>-->
+        <!--</div>-->
+        <div id="page-enter" ms-controller="vm-page" class="shuffle-animation">
+            <div class="content container"  ms-include-src="pageHref"
+                 data-include-rendered="renderPange"></div>
+        </div>
+    </section>
+</div>
+<span data-cc-scroll-to-top></span>

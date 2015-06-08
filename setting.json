@@ -1,0 +1,46 @@
+{
+    "mysql": {
+        "host": "localhost",
+        "database": "ecar",
+        "user": "root",
+        "password": "123456",
+        "port": 6306
+    },
+    "server": {
+        "port": 3101
+    },
+    "app": {
+        "name":"wangmin app",
+        "layouts": true,
+        "themes": true,
+        "languages": true
+    },
+    "proxys":{"0":["http://localhost:8012","http://localhost:8013"]},
+    "session":{
+        "secret": "I'm wangmin",
+        "redis": {
+            "host": "localhost",
+            "port": 6379,
+            "db": 0
+        }
+    },
+    "log": [
+        {
+            "type": "console"
+        },
+        {
+            "type": "file",
+            "filename": "log/normal.log",
+            "maxLogSize": 1048576,
+            "backups": 4,
+            "category": "normal"
+        },
+        {
+            "type": "file",
+            "filename": "log/access.log",
+            "maxLogSize": 1048576,
+            "backups": 4,
+            "category": "access"
+        }
+    ]
+}

@@ -1,0 +1,90 @@
+
+<script>
+    ;!function(){
+
+        avalon.log("主体布局模块加载完毕");
+        var callback=function(e){
+            avalon.scan(document.getElementById('frame-wrapper')) ;
+            e&&layer.alert('初始化页面错误!', 8);
+        }
+        require(['layout/shell'],function(layout,theme){
+            layout.then(function(){
+                callback()
+            },callback)
+        })
+    }()
+</script>
+
+<script  type="avalon" id="tplNavtop">
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+            <div class="navbar-header">
+            <a href="/" class="navbar-brand"><span class="brand-title">我的title</span></a>
+    <a class="btn navbar-btn navbar-toggle" >
+            <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </a>
+    </div>
+    <div class="navbar-collapse collapse">
+            <div class="pull-right navbar-logo">
+            <ul class="nav navbar-nav pull-right">
+            <li>
+            <a href="http://localhost:3101/" target="_blank">
+            Created by wangmin
+    </a>
+    </li>
+    <li class="dropdown dropdown-big">
+            <a href="http://localhost:3101/" target="_blank">
+            <img src="/img/AngularJS-small.png" />
+            </a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </nav>
+</script>
+
+<script  type="avalon" id="tplSiderbar">
+     <div ms-controller='vm-navbar' class="sidebar">
+             <div class="sidebar-filler"></div>
+     <div class="sidebar-dropdown"><a href="#">Menu</a></div>
+     <div class="sidebar-inner">
+             <div class="sidebar-widget">
+
+             </div>
+     <ul class="navi">
+             <li ><div class="sidebar-widget"></div></li>
+             <li class="nlightblue fade-selection-animation "  ms-repeat-menu="userMenus">
+             <a ms-href="menu.href||'#!'" ><i ms-class="fa" ms-class-1='{{menu.style}}'></i> {{menu.name}}</a>
+                </li>
+     </ul>
+     </div>
+     </div>
+ </script>
+
+
+
+
+<div id="frame-wrapper">
+    <div>
+        <header class="clearfix">
+            <div ms-include="'tplNavtop'"></div>
+        </header>
+        <section id="content" class="content">
+            <!--<div data-ng-show="vm.isBusy" class="page-splash dissolve-animation">-->
+                <!--<div data-cc-spinner="vm.spinnerOptions"></div>-->
+                <!--<div class="page-splash-message page-splash-message-subtle">vm.busyMessage</div>-->
+            <!--</div>-->
+
+            <div ms-include="'tplSiderbar'"></div>
+
+
+
+            <div id="page-enter" ms-controller="vm-page" class="shuffle-animation">
+                <div class="content container"  ms-include-src="pageHref"
+                     data-include-rendered="renderPange"></div>
+            </div>
+
+        </section>
+    </div>
+</div>
